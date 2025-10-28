@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isha Bharti | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #f8bbd0, #ffffff);
+      min-height: 100vh;
+      color: #2c3e50;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #d72638;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d72638;
+    }
+
+    /* Mobile menu */
+    .menu-btn {
+      display: none;
+      font-size: 1.6em;
+      color: #d72638;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 60%;
+        background: rgba(255, 255, 255, 0.9);
+        flex-direction: column;
+        text-align: center;
+        border-radius: 10px;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+        animation: slideDown 0.4s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid #d72638;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #d72638;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-top: 20px;
+      color: #d72638;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    header h2 {
+      font-weight: 400;
+      font-size: 1.3em;
+      color: #34495e;
+    }
+
+    /* Container and sections */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    h3 {
+      font-size: 1.9em;
+      color: #2980b9;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 3px solid #d72638;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "★";
+      color: #d72638;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1em;
+    }
+
+    .contact span,
+    .contact a {
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .contact a {
+      color: #2980b9;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #d72638;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 0.95em;
+      color: #555;
+      backdrop-filter: blur(10px);
+    }
+
+    footer span {
+      color: #d72638;
+      font-weight: 600;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Isha Bharti</div>
+    <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <!-- ✅ Your profile image path -->
+    <img src="C:\Users\ISHA BHARTI\Pictures\ishaPhoto.jpg" alt="Isha Bharti" />
+    <h1>Isha Bharti</h1>
+    <h2>Web Developer | Software Engineer</h2>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h3><i class="fas fa-user"></i> About Me</h3>
+      <p>I am a final-year Computer Science student passionate about web development and software design. I enjoy turning complex problems into simple, beautiful, and intuitive solutions while constantly exploring emerging technologies to build impactful projects.</p>
+    </section>
+
+    <section id="skills">
+      <h3><i class="fas fa-code"></i> Skills</h3>
+      <ul>
+        <li>HTML5, CSS3, JavaScript</li>
+        <li>Java, C++, Python</li>
+        <li>SQL and Database Management</li>
+        <li>React (Basic)</li>
+        <li>Git & GitHub</li>
+        <li>Java Swing GUI Design</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h3><i class="fas fa-laptop-code"></i> Projects</h3>
+      <ul>
+        <li><strong>Online Voting System</strong> – A secure web app for conducting elections online with user authentication.</li>
+        <li><strong>Movie Recommendation System</strong> – Machine Learning-based project that suggests movies by analyzing user preferences.</li>
+        <li><strong>Multithreaded Web Server</strong> – Java-based server capable of detecting and preventing deadlocks efficiently.</li>
+        <li><strong>Mini Compiler</strong> – A Java Swing-based compiler that parses code and reports syntax errors.</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+      <ul>
+        <li><strong>B.Tech in Computer Science</strong> – Final Year</li>
+        <li>12th (CBSE) – 85%</li>
+        <li>10th (CBSE) – 93%</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3><i class="fas fa-envelope"></i> Contact</h3>
+      <span>Email: <a href="mailto:ishabharti893@gmail.com">ishabharti893@gmail.com</a></span>
+      <span>LinkedIn: <a href="https://www.linkedin.com/in/isha-bharti-726b36257" target="_blank">linkedin.com/in/isha-bharti</a></span>
+      <span>Phone: 7870402745</span>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 <span>Isha Bharti</span>. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll animation
+    const sections = document.querySelectorAll("section");
+    const reveal = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) sec.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+
+    // Mobile nav toggle
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
